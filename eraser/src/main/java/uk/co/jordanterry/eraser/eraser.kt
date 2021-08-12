@@ -38,8 +38,7 @@ fun Fragment.erase(animator: Animator) {
  *
  * @property animator to be changes as the lifecycle being observed moves through different states
  */
-@JvmInline
-private value class EraserLifecycleObserver(
+private class EraserLifecycleObserver(
     private val animator: Animator
 ) : LifecycleObserver {
 

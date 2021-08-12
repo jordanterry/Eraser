@@ -2,12 +2,12 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-apply plugin: 'kotlin-android'
 
 repositories {
     google()
     mavenCentral()
 }
+
 android {
     compileSdkVersion 30
 

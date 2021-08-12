@@ -1,11 +1,11 @@
 package uk.co.jordanterry.eraser_samples
 
+import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-
+import uk.co.jordanterry.eraser.erase
 
 class EraserSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,18 +13,27 @@ class EraserSampleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_eraser_sample)
 
         val objectAnimator = ObjectAnimator
-            .ofFloat(findViewById(R.id.box_one), "alpha", 0.0f, 1.0f)
+            .ofFloat(findViewById(R.id.box_one), "alpha", 0.0f, 1.0f).apply {
+                repeatCount = ObjectAnimator.INFINITE
+                repeatMode = ObjectAnimator.REVERSE
+                addPauseListener(object : Animator.AnimatorPauseListener {
+                    override fun onAnimationPause(animation: Animator?) {
+                        Log.d(TAG, "Animation is paused")
+                    }
+
+                    override fun onAnimationResume(animation: Animator?) {
+                        Log.d(TAG, "Animation is resumed")
+                    }
+                })
+            }
 
         erase(objectAnimator)
 
         objectAnimator.start()
+    }
 
+    companion object {
+        private const val TAG: String = "EraserSampleActivity"
     }
 }
 
-class TestFragment : Fragment() {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        erase()
-    }
-}

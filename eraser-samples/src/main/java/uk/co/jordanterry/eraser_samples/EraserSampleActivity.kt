@@ -5,7 +5,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import uk.co.jordanterry.eraser.erase
+import uk.co.jordanterry.eraser.eraseWith
 
 class EraserSampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +16,7 @@ class EraserSampleActivity : AppCompatActivity() {
             .ofFloat(findViewById(R.id.box_one), "alpha", 0.0f, 1.0f).apply {
                 repeatCount = ObjectAnimator.INFINITE
                 repeatMode = ObjectAnimator.REVERSE
+                eraseWith(this@EraserSampleActivity)
                 addPauseListener(object : Animator.AnimatorPauseListener {
                     override fun onAnimationPause(animation: Animator?) {
                         Log.d(TAG, "Animation is paused")
@@ -26,9 +27,6 @@ class EraserSampleActivity : AppCompatActivity() {
                     }
                 })
             }
-
-        erase(objectAnimator)
-
         objectAnimator.start()
     }
 

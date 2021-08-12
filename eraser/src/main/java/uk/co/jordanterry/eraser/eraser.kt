@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 
 /**
@@ -18,6 +19,11 @@ import androidx.lifecycle.OnLifecycleEvent
  */
 fun ComponentActivity.erase(animator: Animator) {
     lifecycle.addObserver(EraserLifecycleObserver(animator))
+}
+
+
+fun Animator.eraseWith(lifecycleOwner: LifecycleOwner) {
+    lifecycleOwner.lifecycle.addObserver(EraserLifecycleObserver(this))
 }
 
 /**

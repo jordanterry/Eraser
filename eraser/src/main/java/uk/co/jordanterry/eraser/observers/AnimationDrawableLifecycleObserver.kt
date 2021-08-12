@@ -22,7 +22,7 @@ import androidx.lifecycle.LifecycleOwner
  *
  * @property animationDrawable to be changed as the lifecycle being observed moves through different states
  */
-internal class AnimatedDrawableLifecycleObserver(
+internal class AnimationDrawableLifecycleObserver(
     private val animationDrawable: AnimationDrawable
 ) : DefaultLifecycleObserver {
 

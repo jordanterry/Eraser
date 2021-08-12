@@ -33,7 +33,7 @@ fun Fragment.erase(animator: Animator) {
 }
 
 fun View.erase(animator: Animator) {
-    erase(requierViewTreeLifecycleOwner().lifecycle, animator)
+    erase(requireViewTreeLifecycleOwner().lifecycle, animator)
 }
 
 private fun erase(lifecycle: Lifecycle, animationDrawable: AnimationDrawable) {
@@ -49,10 +49,10 @@ fun Fragment.erase(animationDrawable: AnimationDrawable) {
 }
 
 fun View.erase(animationDrawable: AnimationDrawable) {
-    erase(requierViewTreeLifecycleOwner().lifecycle, animationDrawable)
+    erase(requireViewTreeLifecycleOwner().lifecycle, animationDrawable)
 }
 
-private fun View.requierViewTreeLifecycleOwner(): LifecycleOwner {
+private fun View.requireViewTreeLifecycleOwner(): LifecycleOwner {
     return findViewTreeLifecycleOwner()
         ?: throw IllegalStateException("View lifecycle must not be null.")
 }

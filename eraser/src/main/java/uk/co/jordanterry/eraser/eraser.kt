@@ -3,7 +3,6 @@ package uk.co.jordanterry.eraser
 import android.animation.Animator
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import uk.co.jordanterry.eraser.observers.AnimatorLifecycleObserver
 
 /**
@@ -17,11 +16,6 @@ import uk.co.jordanterry.eraser.observers.AnimatorLifecycleObserver
  */
 fun ComponentActivity.erase(animator: Animator) {
     lifecycle.addObserver(AnimatorLifecycleObserver(animator))
-}
-
-
-fun Animator.eraseWith(lifecycleOwner: LifecycleOwner) {
-    lifecycleOwner.lifecycle.addObserver(AnimatorLifecycleObserver(this))
 }
 
 /**

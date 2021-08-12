@@ -3,10 +3,8 @@ package uk.co.jordanterry.eraser
 import android.animation.Animator
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import uk.co.jordanterry.eraser.observers.AnimatorLifecycleObserver
 
 /**
  * Handle the lifecycle functions of an [Animator] as per the lifecycle of an Activity.
@@ -18,12 +16,12 @@ import androidx.lifecycle.OnLifecycleEvent
  * @param animator that must be erased
  */
 fun ComponentActivity.erase(animator: Animator) {
-    lifecycle.addObserver(EraserLifecycleObserver(animator))
+    lifecycle.addObserver(AnimatorLifecycleObserver(animator))
 }
 
 
 fun Animator.eraseWith(lifecycleOwner: LifecycleOwner) {
-    lifecycleOwner.lifecycle.addObserver(EraserLifecycleObserver(this))
+    lifecycleOwner.lifecycle.addObserver(AnimatorLifecycleObserver(this))
 }
 
 /**
@@ -36,31 +34,5 @@ fun Animator.eraseWith(lifecycleOwner: LifecycleOwner) {
  * @param animator that must be erased
  */
 fun Fragment.erase(animator: Animator) {
-    viewLifecycleOwner.lifecycle.addObserver(EraserLifecycleObserver(animator))
-}
-
-/**
- * Observes lifecycle events and calls lifecycle methods on a provided [Animator].
- *
- * @property animator to be changes as the lifecycle being observed moves through different states
- */
-private class EraserLifecycleObserver(
-    private val animator: Animator
-) : LifecycleObserver {
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun resumeAnimator() {
-        animator.resume()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun pauseAnimator() {
-        animator.pause()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun cancelAnimator() {
-        animator.cancel()
-        animator.removeAllListeners()
-    }
+    viewLifecycleOwner.lifecycle.addObserver(AnimatorLifecycleObserver(animator))
 }

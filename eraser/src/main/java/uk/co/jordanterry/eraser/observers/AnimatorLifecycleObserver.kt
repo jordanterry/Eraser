@@ -1,9 +1,8 @@
 package uk.co.jordanterry.eraser.observers
 
 import android.animation.Animator
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 
 /**
  * Observes lifecycle events and calls lifecycle methods on a provided [Animator].
@@ -12,21 +11,19 @@ import androidx.lifecycle.OnLifecycleEvent
  */
 internal class AnimatorLifecycleObserver(
     private val animator: Animator
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun resumeAnimator() {
+    override fun onResume(owner: LifecycleOwner) {
         animator.resume()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun pauseAnimator() {
+    override fun onPause(owner: LifecycleOwner) {
         animator.pause()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun cancelAnimator() {
+    override fun onDestroy(owner: LifecycleOwner) {
         animator.cancel()
         animator.removeAllListeners()
+        owner.lifecycle.removeObserver(this)
     }
 }

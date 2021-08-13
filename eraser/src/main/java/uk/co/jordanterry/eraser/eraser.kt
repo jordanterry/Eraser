@@ -107,4 +107,3 @@ fun Fragment.erase(animatedVectorDrawableCompat: AnimatedVectorDrawableCompat) =
  */
 fun View.erase(animatedVectorDrawableCompat: AnimatedVectorDrawableCompat) =
     erase(requireViewTreeLifecycleOwner().lifecycle, animatedVectorDrawableCompat)
-

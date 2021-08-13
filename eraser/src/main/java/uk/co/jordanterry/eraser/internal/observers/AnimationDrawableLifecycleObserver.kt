@@ -1,4 +1,4 @@
-package uk.co.jordanterry.eraser.observers
+package uk.co.jordanterry.eraser.internal.observers
 
 import android.graphics.drawable.AnimationDrawable
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -22,19 +22,26 @@ import androidx.lifecycle.LifecycleOwner
  *
  * @property animationDrawable to be changed as the lifecycle being observed moves through different states
  */
-internal class AnimatedDrawableLifecycleObserver(
+internal class AnimationDrawableLifecycleObserver(
     private val animationDrawable: AnimationDrawable
 ) : DefaultLifecycleObserver {
 
+    /**
+     * Indicates if the [animationDrawable] was running when paused. If this was the case, the
+     * animation should be restarted when the lifecycle is resumed.
+     */
+    private var wasAnimatorRunningWhenPaused: Boolean = false
+
     override fun onResume(owner: LifecycleOwner) {
-        if (!animationDrawable.isOneShot) {
-            animationDrawable.start()
-        }
+        animationDrawable.start()
     }
 
     override fun onPause(owner: LifecycleOwner) {
+        wasAnimatorRunningWhenPaused = animationDrawable.isRunning
         animationDrawable.stop()
-        if (animationDrawable.isOneShot) {
+        val canRemoveObserverBecauseAnimationIsCompleted =
+            !wasAnimatorRunningWhenPaused && animationDrawable.isOneShot
+        if (canRemoveObserverBecauseAnimationIsCompleted) {
             owner.lifecycle.removeObserver(this)
         }
     }

@@ -41,13 +41,13 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")
     implementation(project(":eraser"))
 }
+
 repositories {
     mavenCentral()
 }

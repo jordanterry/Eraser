@@ -4,19 +4,30 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import uk.co.jordanterry.eraser.eraseWith
+import androidx.core.animation.addListener
+import uk.co.jordanterry.eraser.erase
 
 class EraserSampleActivity : AppCompatActivity() {
+
+    private val startButton: Button by lazy {
+        findViewById<Button>(R.id.start_animation)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eraser_sample)
+        startButton.setOnClickListener {
+            startObjectAnimator()
+        }
+    }
 
-        val objectAnimator = ObjectAnimator
+    private fun startObjectAnimator() {
+        ObjectAnimator
             .ofFloat(findViewById(R.id.box_one), "alpha", 0.0f, 1.0f).apply {
-                repeatCount = ObjectAnimator.INFINITE
+                repeatCount = 10
                 repeatMode = ObjectAnimator.REVERSE
-                eraseWith(this@EraserSampleActivity)
                 addPauseListener(object : Animator.AnimatorPauseListener {
                     override fun onAnimationPause(animation: Animator?) {
                         Log.d(TAG, "Animation is paused")
@@ -26,8 +37,15 @@ class EraserSampleActivity : AppCompatActivity() {
                         Log.d(TAG, "Animation is resumed")
                     }
                 })
+                addListener(onStart = {
+                    startButton.isEnabled = false
+                }, onEnd = {
+                    startButton.isEnabled = true
+                })
+            }.apply {
+                erase(this)
+                start()
             }
-        objectAnimator.start()
     }
 
     companion object {

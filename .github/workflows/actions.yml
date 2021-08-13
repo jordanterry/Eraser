@@ -24,5 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: GitHub Action for ktlint
-        uses: yutailang0119/action-ktlint@v1.0.0
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter

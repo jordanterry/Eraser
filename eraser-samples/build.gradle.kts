@@ -9,12 +9,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Versions.COMPILE_SDK_VERSION)
 
     defaultConfig {
         applicationId = "uk.co.jordanterry.eraser_samples"
-        minSdkVersion(19)
-        targetSdkVersion(30)
+        minSdkVersion(Versions.MIN_SDK_VERSION)
+        targetSdkVersion(Versions.TARGET_SDK_VERSION)
         versionCode = 1
         versionName = "0.1"
 
@@ -42,7 +42,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation(Libs.APP_COMPAT)
     implementation("com.google.android.material:material:1.4.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")
     implementation(project(":eraser"))

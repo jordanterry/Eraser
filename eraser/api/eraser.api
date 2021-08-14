@@ -1,0 +1,24 @@
+public final class uk/co/jordanterry/eraser/AnimatedvectordrawablecompatsKt {
+	public static final fun erase (Landroid/view/View;Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;)V
+	public static final fun erase (Landroidx/activity/ComponentActivity;Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;)V
+	public static final fun erase (Landroidx/fragment/app/Fragment;Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;)V
+}
+
+public final class uk/co/jordanterry/eraser/AnimatedvectordrawablesKt {
+	public static final fun erase (Landroid/view/View;Landroid/graphics/drawable/AnimatedVectorDrawable;)V
+	public static final fun erase (Landroidx/activity/ComponentActivity;Landroid/graphics/drawable/AnimatedVectorDrawable;)V
+	public static final fun erase (Landroidx/fragment/app/Fragment;Landroid/graphics/drawable/AnimatedVectorDrawable;)V
+}
+
+public final class uk/co/jordanterry/eraser/AnimationdrawablesKt {
+	public static final fun erase (Landroid/view/View;Landroid/graphics/drawable/AnimationDrawable;)V
+	public static final fun erase (Landroidx/activity/ComponentActivity;Landroid/graphics/drawable/AnimationDrawable;)V
+	public static final fun erase (Landroidx/fragment/app/Fragment;Landroid/graphics/drawable/AnimationDrawable;)V
+}
+
+public final class uk/co/jordanterry/eraser/AnimatorsKt {
+	public static final fun erase (Landroid/view/View;Landroid/animation/Animator;)V
+	public static final fun erase (Landroidx/activity/ComponentActivity;Landroid/animation/Animator;)V
+	public static final fun erase (Landroidx/fragment/app/Fragment;Landroid/animation/Animator;)V
+}
+

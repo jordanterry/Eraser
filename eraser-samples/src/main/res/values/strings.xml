@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Eraser Samples</string>
+    <string name="button_start_animation">Start animation</string>
 </resources>

@@ -4,8 +4,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.2.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
+        classpath("com.android.tools.build:gradle:${Versions.BUILD_TOOLS}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN_GRADLE_PLUGIN}")
     }
 }
 plugins {
@@ -14,4 +14,5 @@ plugins {
 
 apiValidation {
     ignoredProjects.addAll(listOf("eraser-samples"))
+    ignoredClasses.add("uk.co.jordanterry.eraser.BuildConfig")
 }

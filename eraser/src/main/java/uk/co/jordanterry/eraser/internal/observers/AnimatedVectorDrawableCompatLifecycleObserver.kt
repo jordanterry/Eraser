@@ -6,19 +6,24 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 
 /**
- * Observes lifecycle events and syncs them with the "lifecycle" methods on a provided [AnimatedVectorDrawableCompat].
+ * Observes lifecycle events and syncs them with the "lifecycle" methods on a provided
+ * [AnimatedVectorDrawableCompat].
  *
  * Methods considered lifecycle events:
  *
- * * [AnimatedVectorDrawableCompat.start], will be synced with a transition to [Lifecycle.State.PAUSED]
- * * [AnimatedVectorDrawableCompat.stop], will be synced with a transition to [Lifecycle.State.RESUMED], if the animation was running when paused
+ * * [AnimatedVectorDrawableCompat.start], will be synced with a transition to
+ * [Lifecycle.State.PAUSED]
+ * * [AnimatedVectorDrawableCompat.stop], will be synced with a transition to
+ * [Lifecycle.State.RESUMED], if the animation was running when paused
  *
  * Methods important for cleaning up after ourselves:
- * * [AnimatedVectorDrawableCompat.clearAnimationCallbacks], when transition into the [Lifecycle.State.DESTROYED] state, all listeners will be removed
+ * * [AnimatedVectorDrawableCompat.clearAnimationCallbacks], when transition into the
+ * [Lifecycle.State.DESTROYED] state, all listeners will be removed
  *
  * We ensure that we *only* resume a paused animation if it was running when we paused it.
  *
- * @property animatedVectorDrawableCompat to be changed as the lifecycle being observed moves through different states
+ * @property animatedVectorDrawableCompat to be changed as the lifecycle being observed moves
+ * through different states
  */
 internal class AnimatedVectorDrawableCompatLifecycleObserver(
     private val animatedVectorDrawableCompat: AnimatedVectorDrawableCompat

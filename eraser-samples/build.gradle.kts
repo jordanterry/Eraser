@@ -42,7 +42,7 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.6.0")
-    implementation(Deps.APPCCOMPAT)
+    implementation(Libs.APP_COMPAT)
     implementation("com.google.android.material:material:1.4.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")
     implementation(project(":eraser"))

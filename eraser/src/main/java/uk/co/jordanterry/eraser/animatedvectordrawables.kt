@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import uk.co.jordanterry.eraser.internal.erase
 import uk.co.jordanterry.eraser.internal.requireViewTreeLifecycleOwner
 
-
 /**
  * Sync the "lifecycle" of an [AnimatedVectorDrawable] to the lifecycle of this [Activity]
  *

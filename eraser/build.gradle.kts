@@ -40,9 +40,9 @@ android {
 }
 
 dependencies {
-    implementation(Deps.APPCCOMPAT)
-    implementation(Deps.LIFECYCLE_RUNTIME)
-    implementation(Deps.LIFECYCLE_JAVA8)
-    implementation(Deps.FRAGMEN_KTX)
-    implementation(Deps.ACTIVITY_KTX)
+    implementation(Libs.APP_COMPAT)
+    implementation(Libs.LIFECYCLE_RUNTIME)
+    implementation(Libs.LIFECYCLE_JAVA8)
+    implementation(Libs.FRAGMENT_KTX)
+    implementation(Libs.ACTIVITY_KTX)
 }

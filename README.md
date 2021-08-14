@@ -1,6 +1,5 @@
 # Eraser
-Erase your animations.
 
-## Design document
+Eraser is a library to help you erase your animations. 
 
-https://docs.google.com/document/d/1SbMnGE5JDZmFuNaz9FG_TFmDp8xVIsrqF1v6FJSpevs/edit?usp=sharing
+Android has a number of different animation APIs, each API provides a different way to manage the lifecycle and unregister animation libraries. Eraser helps to make this consistent and make your apps better.

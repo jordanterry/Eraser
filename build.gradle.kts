@@ -14,4 +14,5 @@ plugins {
 
 apiValidation {
     ignoredProjects.addAll(listOf("eraser-samples"))
+    ignoredClasses.add("uk.co.jordanterry.eraser.BuildConfig")
 }

@@ -16,14 +16,7 @@ public final class uk/co/jordanterry/eraser/AnimationdrawablesKt {
 	public static final fun erase (Landroidx/fragment/app/Fragment;Landroid/graphics/drawable/AnimationDrawable;)V
 }
 
-public final class uk/co/jordanterry/eraser/BuildConfig {
-	public static final field BUILD_TYPE Ljava/lang/String;
-	public static final field DEBUG Z
-	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
-	public fun <init> ()V
-}
-
-public final class uk/co/jordanterry/eraser/eraser {
+public final class uk/co/jordanterry/eraser/AnimatorsKt {
 	public static final fun erase (Landroid/view/View;Landroid/animation/Animator;)V
 	public static final fun erase (Landroidx/activity/ComponentActivity;Landroid/animation/Animator;)V
 	public static final fun erase (Landroidx/fragment/app/Fragment;Landroid/animation/Animator;)V

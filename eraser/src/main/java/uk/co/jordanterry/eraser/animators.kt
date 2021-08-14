@@ -1,5 +1,3 @@
-@file:JvmName("eraser")
-
 package uk.co.jordanterry.eraser
 
 import android.animation.Animator

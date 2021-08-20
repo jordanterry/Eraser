@@ -1,3 +1,6 @@
+@file:JvmMultifileClass
+@file:JvmName("EraserKt")
+
 package uk.co.jordanterry.eraser
 
 import android.animation.Animator
